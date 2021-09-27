@@ -1,0 +1,53 @@
+﻿@model Product
+@* Product tipine uygun bir bilgi gönderiyoruz*@
+
+@*form action=".."yazmazsan default => action="/product/create"*@
+ 
+
+<form method="POST">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label for="Name"> Name </label>
+        @*<input type="text" name="Name" class="form-control">*@
+        <input asp-for="Name" value="@Model.Name" class="form-control" />
+
+        @*asp net core model doğrulaması: asp-validation-form|ModelState içerisindeki alanlarla (name,fiyat,)ilişkilendirilmiş hata msjlarını yazmak için özelleştirilmiş.*@
+        <span asp-validation-for="Name" class="text-danger">  </span>
+
+    </div>
+
+    <div class="form-group">
+        <label for="Cost"> Cost </label>
+        @*<input type="text" name="Cost" class="form-control">*@
+        <input asp-for="Cost" value="@Model.Cost" class="form-control" />
+        <span asp-validation-for="Cost" class="text-danger">  </span>
+
+    </div>
+
+    <div class="form-group">
+        <label for="Description"> Description </label>
+        @* 1) <textarea name="Description" class="form-control"> </textarea>*@
+        <input asp-for="Description" value="@Model.Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger">  </span>
+
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl"> ImageUrl </label>
+        @* 2) <input type="text" name="ImageUrl" class="form-control">*@
+        <input asp-for="ImageUrl" value="@Model.ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger">  </span>
+
+    </div>
+
+    @* <div class="form-group">
+            <label for="CategoryId">CategoryId</label>
+            <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+                <option selected disabled>Seçiniz</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div> *@
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

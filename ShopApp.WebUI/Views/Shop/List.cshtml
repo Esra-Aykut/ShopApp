@@ -1,0 +1,23 @@
+﻿@model ProductListViewModel
+ 
+
+    @if (Model.Products.Count == 0)
+    {
+        @await Html.PartialAsync("_noproduct")
+    }
+
+    else
+    {
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_product", product)
+                </div>
+            }
+        </div>
+    }
+
+ 
+
+

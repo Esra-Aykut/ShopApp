@@ -1,0 +1,50 @@
+﻿@model Product
+@* Product tipine uygun bir bilgi gönderiyoruz*@
+
+@*form action=".."yazmazsan default => action="/product/create"*@
+
+
+<form method="POST">
+
+    <input type="hidden" name="ProductId" value="@Model.ProductId" />       
+
+    <div class="form-group">
+        <label for="Name"> Name </label>
+        @*<input type="text" name="Name" class="form-control">*@
+        <input asp-for="Name" value="@Model.Name" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="Cost"> Cost </label>
+        @*<input type="text" name="Cost" class="form-control">*@
+        <input asp-for="Cost" value="@Model.Cost" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Description"> Description </label>
+        @* 1) <textarea name="Description" class="form-control"> </textarea>*@
+        <input asp-for="Description"  value="@Model.Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl"> ImageUrl </label>
+        @* 2) <input type="text" name="ImageUrl" class="form-control">*@
+        <input asp-for="ImageUrl" value="@Model.ImageUrl" class="form-control" />
+    </div>
+
+    <!--<div class="form-group">
+        <label for="CategoryId"> CategoryId </label>-->
+        @* 1) <input type="text" name="CategoryId" class="form-control">
+            2) <input asp-for="CategoryId" class="form-control" />*@
+        <!--<select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+            <option selected disabled>Seçiniz </option>-->
+            @*<option value="1">Telefon</option>
+                <option value="2">Bilgisayar</option>
+                <option value="3">Elektronik</option>*@
+        <!--</select>
+    </div>-->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

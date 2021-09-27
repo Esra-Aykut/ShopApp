@@ -1,0 +1,41 @@
+﻿<div class="navbar bg-danger navbar-dark navbar-expand-sm">
+    <div class="container">
+
+        <a href="/" class="navbar-brand">Shopapp</a>  @*href=>uygulama ana syf*@
+
+    <ul class="navbar-nav" mr-auto>
+        <li class="nav-item">
+            @*<a href="/product/list" class="nav-link">Products</a>*@
+            <a asp-controller="shop" asp-action="list" class="nav-link">Products</a> @*-> kullanıcı syflarını shopController üzerinden yürütmek istiyorum.*@
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">Card</a>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">Orders</a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="admin" asp-action="createproduct">Add Product</a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="admin" asp-action="productlist">Admin Products</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Link 3</a>
+        </li>
+    </ul>
+
+        @*<form action="/product/list" class="form-inline">
+              <input name="q" type="text" class="form-control mr-2" placeholder="Search">
+              <button type="submit" class="btn btn-outline-light ">Search</button>
+        </form>*@
+
+        <form action="/product/list" class="d-flex">
+            <input name="q" type="text" class="form-control me-2" placeholder="Search">
+            <button type="submit" class="btn btn-outline-light">Search</button>
+        </form>
+
+
+
+    </div>
+</div>
