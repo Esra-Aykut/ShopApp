@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopApp.Business.Abstract;
 using ShopApp.Data.Abstract;
-using ShopApp.WebUI.ViewModels;
+
+//using ShopApp.WebUI.ViewModels; //*****************artık yok
+using ShopApp.WebUI.Models;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +29,7 @@ namespace ShopApp.WebUI.Controllers
 
             var productViewModel = new ProductListViewModel()
             {
-                //Products = _productRepository.GetAll()
-                Products = _productService.GetAll()
+                Products = _productService.GetHomePageProducts()
             };
             return View(productViewModel);
 

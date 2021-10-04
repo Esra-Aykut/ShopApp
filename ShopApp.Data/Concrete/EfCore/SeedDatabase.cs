@@ -22,7 +22,8 @@ namespace ShopApp.Data.Concrete.EfCore
 
                 if (context.Products.Count() == 0)   
                 {
-                    context.Products.AddRange(Products);    
+                    context.Products.AddRange(Products); //context.AddRange(Products) ->aynı
+                    context.AddRange(ProductCategories);
                 }
             }
             context.SaveChanges();
@@ -30,18 +31,31 @@ namespace ShopApp.Data.Concrete.EfCore
 
 
         private static Category[] Categories = {
-            new Category(){Name ="Telefon"},
-            new Category(){Name = "Bilgisayar"},
-            new Category(){Name = "Elektronik"},
+            new Category(){Name ="Telefon",Url="telefon"},
+            new Category(){Name = "Bilgisayar", Url="bilgisayar"},
+            new Category(){Name = "Elektronik", Url="elektronik"},
+            new Category(){Name = "Beyaz Eşya", Url="beyaz-esya"},
         };
         private static Product[] Products = { 
-            new Product(){Name="Samsung S5",Cost=2000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
-            new Product(){Name="Samsung S6",Cost=3000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=false},
-            new Product(){Name="Samsung S7",Cost=4000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
-            new Product(){Name="Samsung S8",Cost=5000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
-            new Product(){Name="Samsung S9",Cost=6000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true}
+            new Product(){Name="Samsung S5", Url="samsung-s5",Cost=2000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
+            new Product(){Name="Samsung S6",Url="samsung-s6",Cost=3000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=false},
+            new Product(){Name="Samsung S7",Url="samsung-s7",Cost=4000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
+            new Product(){Name="Samsung S8",Url="samsung-s8",Cost=5000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true},
+            new Product(){Name="Samsung S9",Url="samsung-s9",Cost=6000,ImageUrl="1.jpg",Description="iyi telefon",IsApproved=true}
         };
 
+
+        private static ProductCategory[] ProductCategories =
+        {
+            new ProductCategory(){Product=Products[0],Category=Categories[0]},
+            new ProductCategory(){Product=Products[0],Category=Categories[2]},
+            new ProductCategory(){Product=Products[1],Category=Categories[0]},
+            new ProductCategory(){Product=Products[1],Category=Categories[2]},
+            new ProductCategory(){Product=Products[2],Category=Categories[0]},
+            new ProductCategory(){Product=Products[2],Category=Categories[2]},
+            new ProductCategory(){Product=Products[3],Category=Categories[0]},
+            new ProductCategory(){Product=Products[3],Category=Categories[2]},
+        };
 
     }
 }

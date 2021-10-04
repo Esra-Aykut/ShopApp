@@ -7,10 +7,12 @@ namespace ShopApp.Entity
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
+        public string Url { get; set; }
         public double? Cost { get; set; }    
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public bool IsApproved { get; set; } 
+        public bool IsApproved { get; set; } //true'lar kullanıcı syfsında görünsün
+        public bool IsHome { get; set; } //true'lar anasyf'ya gelsin
         public List<ProductCategory> ProductCategories { get; set; }
     }
 }

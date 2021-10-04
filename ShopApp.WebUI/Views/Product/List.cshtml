@@ -1,7 +1,6 @@
 ﻿@model ProductListViewModel
 
-@{Layout ="_Layout"; }
- 
+
 
 @{
     var popularClass = Model.Products.Count > 2 ? "popular" : "";
@@ -10,10 +9,16 @@
 
 
 <div class="row">
-    <div class="col-md-3">
+
+    <div class="col-md-4">
         @await Component.InvokeAsync("Categories")
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
+
+
+
+
+
         @if (products.Count == 0)
         {
             @await Html.PartialAsync("_noproduct")
@@ -29,13 +34,15 @@
                 }
             </div>
         }
+
+
+
+
+
     </div>
+
+
 </div>
-
-
-
-
-
 
 
 
