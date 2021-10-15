@@ -69,12 +69,41 @@ namespace ShopApp.WebUI
                 {
 
                     endpoints.MapControllerRoute(
-                        name: "adminproductlist",
+                        name: "adminproducts",
                         pattern: "admin/products",
                         defaults: new { controller = "Admin", action = "ProductList" }
 
                      );
 
+                    endpoints.MapControllerRoute(
+                        name: "adminproductcreate",
+                        pattern: "admin/products/create",
+                        defaults: new { controller = "Admin", action = "ProductCreate" }
+                     );
+
+                    endpoints.MapControllerRoute(
+                        name: "adminproductedit",
+                        pattern: "admin/products/{id?}",
+                        defaults: new { controller = "Admin", action = "ProductEdit" }
+                     );
+
+                    endpoints.MapControllerRoute(
+                        name: "admincategories",
+                        pattern: "admin/categories",
+                        defaults: new { controller = "Admin", action = "CategoryList" }
+                     );        
+                    
+                    endpoints.MapControllerRoute(
+                        name: "admincategoriycreate",
+                        pattern: "admin/categories/create",
+                        defaults: new { controller = "Admin", action = "CategoryCreate" }
+                     );
+
+                    endpoints.MapControllerRoute(
+                        name: "admincategoryedit",
+                        pattern: "admin/categories/{id?}",
+                        defaults: new { controller = "Admin", action = "CategoryEdit" }
+                     );
 
 
                     endpoints.MapControllerRoute(
@@ -89,17 +118,16 @@ namespace ShopApp.WebUI
                     //{productname}-{id} -> Samsung S5-10
 
                     endpoints.MapControllerRoute(
-                        name: "products",   //route'a bir isim verelim
-                        pattern: "products/{category?}",  //"/products" , "/products/telefon" 
-                        defaults: new { controller = "Shop", action = "list" } //kullanýcý "products"a gittiðinde gelecek olan default deðer 
-                    );
-
-                    endpoints.MapControllerRoute(
                         name: "productdetails",
                         pattern: "{url}", //shopController>>details'e gidecek ve giderken götürdüðü parametre=url
                         defaults: new { controller = "Shop", action = "details" }
                     );
 
+                    endpoints.MapControllerRoute(
+                        name: "products",   //route'a bir isim verelim
+                        pattern: "products/{category?}",  //"/products" , "/products/telefon" 
+                        defaults: new { controller = "Shop", action = "list" } //kullanýcý "products"a gittiðinde gelecek olan default deðer 
+                    );
 
                     endpoints.MapControllerRoute(   //diðerlerini defaultun üstünde tanýmla
                         name: "default",

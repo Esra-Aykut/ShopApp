@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using ShopApp.Data.Concrete.EfCore; 
 
 namespace ShopApp.Business.Concrete
 {
@@ -71,7 +72,8 @@ namespace ShopApp.Business.Concrete
 
         public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            //kontroller. bu url daha önce kullanılmış mı vs.
+            _productRepository.Update(entity);
         }
     }
 }
